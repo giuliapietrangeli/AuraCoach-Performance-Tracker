@@ -1,0 +1,760 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5252B09C2F75312B000AB15E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5252B09B2F75312B000AB15E /* FirebaseAuth */; };
+		5252B09E2F75312B000AB15E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5252B09D2F75312B000AB15E /* FirebaseFirestore */; };
+		5252B0AF2F753B26000AB15E /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252B0AE2F753B26000AB15E /* SharedModels.swift */; };
+		5252B0B02F753B26000AB15E /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252B0AE2F753B26000AB15E /* SharedModels.swift */; };
+		5252B0B12F753B26000AB15E /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252B0AE2F753B26000AB15E /* SharedModels.swift */; };
+		5252B0B42F753B9F000AB15E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5252B0B32F753B9F000AB15E /* FirebaseAuth */; };
+		5252B0B62F753BA4000AB15E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5252B0B52F753BA4000AB15E /* FirebaseFirestore */; };
+		52DF5CEF2F6C1BBA00D2E0E4 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF5CEE2F6C1BBA00D2E0E4 /* WatchConnectivityManager.swift */; };
+		52DF5CF02F6C1BBA00D2E0E4 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF5CEE2F6C1BBA00D2E0E4 /* WatchConnectivityManager.swift */; };
+		52E315602F61A16800F8B31E /* AuraCoachWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 52E315562F61A16700F8B31E /* AuraCoachWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52E3155E2F61A16800F8B31E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E3153C2F61A04B00F8B31E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52E315552F61A16700F8B31E;
+			remoteInfo = "AuraCoachWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52E315642F61A16800F8B31E /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				52E315602F61A16800F8B31E /* AuraCoachWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5252B0A32F753AEB000AB15E /* AuraCoachMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuraCoachMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5252B0AE2F753B26000AB15E /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
+		52DF5CEE2F6C1BBA00D2E0E4 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		52E315442F61A04B00F8B31E /* AuraCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuraCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E315562F61A16700F8B31E /* AuraCoachWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AuraCoachWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5252B0A42F753AEB000AB15E /* AuraCoachMac */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AuraCoachMac;
+			sourceTree = "<group>";
+		};
+		52E315462F61A04B00F8B31E /* AuraCoach */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AuraCoach;
+			sourceTree = "<group>";
+		};
+		52E315572F61A16700F8B31E /* AuraCoachWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "AuraCoachWatch Watch App";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5252B0A02F753AEB000AB15E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5252B0B42F753B9F000AB15E /* FirebaseAuth in Frameworks */,
+				5252B0B62F753BA4000AB15E /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E315412F61A04B00F8B31E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5252B09C2F75312B000AB15E /* FirebaseAuth in Frameworks */,
+				5252B09E2F75312B000AB15E /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E315532F61A16700F8B31E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5252B0B22F753B9F000AB15E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52E3153B2F61A04B00F8B31E = {
+			isa = PBXGroup;
+			children = (
+				5252B0AE2F753B26000AB15E /* SharedModels.swift */,
+				52DF5CEE2F6C1BBA00D2E0E4 /* WatchConnectivityManager.swift */,
+				52E315462F61A04B00F8B31E /* AuraCoach */,
+				52E315572F61A16700F8B31E /* AuraCoachWatch Watch App */,
+				5252B0A42F753AEB000AB15E /* AuraCoachMac */,
+				5252B0B22F753B9F000AB15E /* Frameworks */,
+				52E315452F61A04B00F8B31E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52E315452F61A04B00F8B31E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52E315442F61A04B00F8B31E /* AuraCoach.app */,
+				52E315562F61A16700F8B31E /* AuraCoachWatch Watch App.app */,
+				5252B0A32F753AEB000AB15E /* AuraCoachMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5252B0A22F753AEB000AB15E /* AuraCoachMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5252B0AB2F753AEC000AB15E /* Build configuration list for PBXNativeTarget "AuraCoachMac" */;
+			buildPhases = (
+				5252B09F2F753AEB000AB15E /* Sources */,
+				5252B0A02F753AEB000AB15E /* Frameworks */,
+				5252B0A12F753AEB000AB15E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5252B0A42F753AEB000AB15E /* AuraCoachMac */,
+			);
+			name = AuraCoachMac;
+			packageProductDependencies = (
+				5252B0B32F753B9F000AB15E /* FirebaseAuth */,
+				5252B0B52F753BA4000AB15E /* FirebaseFirestore */,
+			);
+			productName = AuraCoachMac;
+			productReference = 5252B0A32F753AEB000AB15E /* AuraCoachMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52E315432F61A04B00F8B31E /* AuraCoach */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52E3154F2F61A04B00F8B31E /* Build configuration list for PBXNativeTarget "AuraCoach" */;
+			buildPhases = (
+				52E315402F61A04B00F8B31E /* Sources */,
+				52E315412F61A04B00F8B31E /* Frameworks */,
+				52E315422F61A04B00F8B31E /* Resources */,
+				52E315642F61A16800F8B31E /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52E3155F2F61A16800F8B31E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				52E315462F61A04B00F8B31E /* AuraCoach */,
+			);
+			name = AuraCoach;
+			packageProductDependencies = (
+				5252B09B2F75312B000AB15E /* FirebaseAuth */,
+				5252B09D2F75312B000AB15E /* FirebaseFirestore */,
+			);
+			productName = AuraCoach;
+			productReference = 52E315442F61A04B00F8B31E /* AuraCoach.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52E315552F61A16700F8B31E /* AuraCoachWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52E315612F61A16800F8B31E /* Build configuration list for PBXNativeTarget "AuraCoachWatch Watch App" */;
+			buildPhases = (
+				52E315522F61A16700F8B31E /* Sources */,
+				52E315532F61A16700F8B31E /* Frameworks */,
+				52E315542F61A16700F8B31E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				52E315572F61A16700F8B31E /* AuraCoachWatch Watch App */,
+			);
+			name = "AuraCoachWatch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "AuraCoachWatch Watch App";
+			productReference = 52E315562F61A16700F8B31E /* AuraCoachWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52E3153C2F61A04B00F8B31E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					5252B0A22F753AEB000AB15E = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					52E315432F61A04B00F8B31E = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					52E315552F61A16700F8B31E = {
+						CreatedOnToolsVersion = 26.3;
+					};
+				};
+			};
+			buildConfigurationList = 52E3153F2F61A04B00F8B31E /* Build configuration list for PBXProject "AuraCoach" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52E3153B2F61A04B00F8B31E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5252B09A2F75312B000AB15E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 52E315452F61A04B00F8B31E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52E315432F61A04B00F8B31E /* AuraCoach */,
+				52E315552F61A16700F8B31E /* AuraCoachWatch Watch App */,
+				5252B0A22F753AEB000AB15E /* AuraCoachMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5252B0A12F753AEB000AB15E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E315422F61A04B00F8B31E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E315542F61A16700F8B31E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5252B09F2F753AEB000AB15E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5252B0B12F753B26000AB15E /* SharedModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E315402F61A04B00F8B31E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5252B0AF2F753B26000AB15E /* SharedModels.swift in Sources */,
+				52DF5CEF2F6C1BBA00D2E0E4 /* WatchConnectivityManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E315522F61A16700F8B31E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5252B0B02F753B26000AB15E /* SharedModels.swift in Sources */,
+				52DF5CF02F6C1BBA00D2E0E4 /* WatchConnectivityManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52E3155F2F61A16800F8B31E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52E315552F61A16700F8B31E /* AuraCoachWatch Watch App */;
+			targetProxy = 52E3155E2F61A16800F8B31E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5252B0AC2F753AEC000AB15E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = AuraCoachMac/AuraCoachMac.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TFW838MGJ;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AURA.AuraCoachMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5252B0AD2F753AEC000AB15E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = AuraCoachMac/AuraCoachMac.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TFW838MGJ;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AURA.AuraCoachMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		52E3154D2F61A04B00F8B31E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		52E3154E2F61A04B00F8B31E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52E315502F61A04B00F8B31E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = AuraCoach/AuraCoach.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TFW838MGJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Useremo il tuo battito, passi e calorie per calcolare l'ansia e generare il report.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "I passi e le calorie della tua sessione verranno salvati nell'app Salute per il report";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Necessario per analizzare il tono di voce durante l'esposizione.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Necessario per calcolare la velocità del parlato in tempo reale.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AURA.AuraCoach;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52E315512F61A04B00F8B31E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = AuraCoach/AuraCoach.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TFW838MGJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Useremo il tuo battito, passi e calorie per calcolare l'ansia e generare il report.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "I passi e le calorie della tua sessione verranno salvati nell'app Salute per il report";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Necessario per analizzare il tono di voce durante l'esposizione.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Necessario per calcolare la velocità del parlato in tempo reale.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AURA.AuraCoach;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		52E315622F61A16800F8B31E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "AuraCoachWatch Watch App/AuraCoachWatch Watch App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TFW838MGJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AuraCoachWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = AuraCoachWatch;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Necessario per monitorare la frequenza cardiaca in tempo reale e rilevare l'ansia.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Necessario per salvare i dati della sessione di monitoraggio.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = AURA.AuraCoach;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AURA.AuraCoach.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		52E315632F61A16800F8B31E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "AuraCoachWatch Watch App/AuraCoachWatch Watch App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TFW838MGJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AuraCoachWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = AuraCoachWatch;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Necessario per monitorare la frequenza cardiaca in tempo reale e rilevare l'ansia.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Necessario per salvare i dati della sessione di monitoraggio.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = AURA.AuraCoach;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AURA.AuraCoach.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5252B0AB2F753AEC000AB15E /* Build configuration list for PBXNativeTarget "AuraCoachMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5252B0AC2F753AEC000AB15E /* Debug */,
+				5252B0AD2F753AEC000AB15E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52E3153F2F61A04B00F8B31E /* Build configuration list for PBXProject "AuraCoach" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E3154D2F61A04B00F8B31E /* Debug */,
+				52E3154E2F61A04B00F8B31E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52E3154F2F61A04B00F8B31E /* Build configuration list for PBXNativeTarget "AuraCoach" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E315502F61A04B00F8B31E /* Debug */,
+				52E315512F61A04B00F8B31E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52E315612F61A16800F8B31E /* Build configuration list for PBXNativeTarget "AuraCoachWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E315622F61A16800F8B31E /* Debug */,
+				52E315632F61A16800F8B31E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5252B09A2F75312B000AB15E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5252B09B2F75312B000AB15E /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5252B09A2F75312B000AB15E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		5252B09D2F75312B000AB15E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5252B09A2F75312B000AB15E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		5252B0B32F753B9F000AB15E /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5252B09A2F75312B000AB15E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		5252B0B52F753BA4000AB15E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5252B09A2F75312B000AB15E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 52E3153C2F61A04B00F8B31E /* Project object */;
+}
