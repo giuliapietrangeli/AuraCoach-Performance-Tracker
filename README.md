@@ -77,6 +77,7 @@ The repository is organized to separate the source code from the HCI research ma
 │   └── Prototypes/             # Screenshots, Figma Interactive Prototype Link, Prototype Feedbacks
 ├── .gitignore                  # Excludes Xcode temp/user files
 └── README.md                   # Project documentation
+```
 
 ## 🔧 Setup & Installation
 1. Clone the repository to your local machine.
