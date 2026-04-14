@@ -1,4 +1,4 @@
-# AuraCoach 📱⌚💻
+# AuraCoach 📱⌚💻 
 
 > **A real-time biometric telemetry and AI-driven behavioral analysis suite for public speaking.**
 
