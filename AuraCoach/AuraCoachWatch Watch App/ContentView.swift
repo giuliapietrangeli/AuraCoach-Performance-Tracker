@@ -10,14 +10,25 @@ struct ContentView: View {
     
     @State private var sessionStartTime: Date? = nil
     
+    @State private var crownValue: Double = 0.0
+    @State private var isAlertsPaused: Bool = false
+    @State private var lastHapticValue: Double = 0.0
+    
     var body: some View {
         VStack(spacing: 0) {
             
             HStack {
-                Text(hkManager.statusMessage)
-                    .font(.system(size: 11, weight: .bold, design: .rounded))
-                    .foregroundColor(hkManager.isWorkoutActive ? .green : .gray)
-                    .tracking(1.2)
+                if isAlertsPaused {
+                    Text("CALM MODE")
+                        .font(.system(size: 11, weight: .bold, design: .rounded))
+                        .foregroundColor(.indigo)
+                        .tracking(1.2)
+                } else {
+                    Text(hkManager.statusMessage)
+                        .font(.system(size: 11, weight: .bold, design: .rounded))
+                        .foregroundColor(hkManager.isWorkoutActive ? .green : .gray)
+                        .tracking(1.2)
+                }
                 
                 Spacer()
                 
@@ -104,11 +115,43 @@ struct ContentView: View {
         .padding(.bottom, 8)
         .edgesIgnoringSafeArea(.bottom)
         
+        .focusable(hkManager.isWorkoutActive)
+        .digitalCrownRotation(
+            $crownValue,
+            from: -1000,
+            through: 1000,
+            by: 1,
+            sensitivity: .low,
+            isContinuous: true,
+            isHapticFeedbackEnabled: false
+        )
+        .onChange(of: crownValue) { oldValue, newValue in
+            if hkManager.isWorkoutActive {
+                if abs(newValue - lastHapticValue) >= 2 {
+                    hapticManager.triggerCrownHaptic()
+                    lastHapticValue = newValue
+                }
+            }
+        }
+        
+        .onLongPressGesture(minimumDuration: 1.5) {
+            if hkManager.isWorkoutActive {
+                hapticManager.triggerResetHaptic()
+                isAlertsPaused = true
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+                    isAlertsPaused = false
+                }
+            }
+        }
+        
         .onChange(of: hkManager.isWorkoutActive) { oldValue, newValue in
             if newValue {
                 sessionStartTime = Date()
+                isAlertsPaused = false
             } else {
                 sessionStartTime = nil
+                isAlertsPaused = false
             }
         }
         
@@ -120,9 +163,9 @@ struct ContentView: View {
                 hkManager.stopMockWorkout()
                 motionManager.stopTracking()
             } else if newValue.hasPrefix("vibrate_teso") && hkManager.isWorkoutActive {
-                hapticManager.triggerHaptic(type: .notification)
+                if !isAlertsPaused { hapticManager.triggerHaptic(type: .notification) }
             } else if newValue.hasPrefix("vibrate_panico") && hkManager.isWorkoutActive {
-                hapticManager.triggerPanicoHaptic()
+                if !isAlertsPaused { hapticManager.triggerPanicoHaptic() }
             }
         }
     }
