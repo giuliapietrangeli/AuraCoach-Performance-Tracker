@@ -13,14 +13,17 @@ The design choices behind AuraCoach are deeply rooted in cognitive psychology an
 * **The Problem (Cognitive Overload):** We referenced Eysenck et al.'s *Attentional Control Theory* to understand how anxiety consumes working memory. This cognitive overload explains why speakers experience a "blind spot," losing awareness of peripheral cues like their speaking rate or excessive gesticulation during a presentation.
 * **The Interaction (Haptic Feedback):** To preserve the speaker's eye contact with the audience, AuraCoach relies on discrete wrist vibrations rather than visual alerts. This interaction model is validated by research on haptic notification systems, which demonstrates the superiority of tactile feedback for timing and pacing awareness during oral presentations.
 * **The Efficacy (Biofeedback):** The core intervention of our ecosystem is supported by studies on biofeedback awareness. Research shows that making users aware of their physiological parameters (such as heart rate and agitation) actively helps them manage and lower their physiological stress response in real-time.
+* **Interoceptive Anchoring (Entrainment):** Based on studies regarding wearable devices during public speaking anticipation (e.g., Azevedo et al.), we implemented a tactile heartbeat simulation. Providing a slow, rhythmic haptic pulse (simulating a 60 BPM heart rate) induces physiological *entrainment*, subconsciously guiding the speaker's actual heart rate to slow down and sync with the wearable, drastically reducing anxiety without requiring visual attention.
 
 ---
 
 ## 🚀 Key Features
 
-### ⌚ Biometric Monitoring (Apple Watch)
+### ⌚ Biometric Monitoring & Biofeedback (Apple Watch)
 * **Real-Time Analysis:** Continuous tracking of heart rate (BPM) and physical agitation via accelerometer (G-force).
 * **Silent Haptic Feedback:** Discreet wrist vibrations that act as an "anchor" to regulate breathing without interrupting eye contact with the audience.
+* **Tactile Grounding (Digital Crown):** The Apple Watch's Digital Crown acts as an invisible "fidget" tool. Rotating it provides crisp, mechanical haptic clicks, allowing the speaker to discharge nervous energy continuously and discreetly while keeping their hands behind their back or by their sides.
+* **Interoceptive Reset (Calm Mode):** A 1.5-second long-press on the watch face activates a 60-second "Calm Mode" (muting all stress alerts) and delivers three deep, slow haptic pulses. This simulates a resting heartbeat, triggering physical calming through rhythmic entrainment and giving the speaker a moment to regain focus.
 
 ### 📱 iOS Dashboard & Voice Analysis
 * **WPM (Words Per Minute) Analysis:** Speech pace monitoring to identify speed peaks caused by stress.
