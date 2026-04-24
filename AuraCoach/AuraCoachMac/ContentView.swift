@@ -202,7 +202,7 @@ struct MainDashboardView: View {
             VStack(alignment: .leading, spacing: 40) {
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Welcome back, Giulia")
+                    Text("Welcome back")
                         .font(.system(size: 40, weight: .bold))
                     Text("Here is the complete analysis of your historical performances.")
                         .font(.title2).foregroundColor(.secondary)
