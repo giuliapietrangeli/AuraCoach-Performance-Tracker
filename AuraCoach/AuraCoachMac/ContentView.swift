@@ -222,12 +222,12 @@ struct MainDashboardView: View {
                         .font(.title2).bold()
                     
                     LazyVGrid(columns: chartColumns, spacing: 30) {
-                        TrendLineChart(title: "Anxiety Trend", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.averageAnxiety, color: .blue, unit: "%", range: 0...100, selection: $selection)
-                        TrendLineChart(title: "Max Heart Rate Trend", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.maxBPM, color: .red, unit: "BPM", range: 0...200, selection: $selection)
-                        TrendLineChart(title: "Avg Pace (WPM)", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.averageWPM, color: .purple, unit: "WPM", range: 0...300, selection: $selection)
+                        TrendLineChart(title: "Anxiety Trend", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.averageAnxiety, color: .blue, unit: "%", range: -1...110, selection: $selection, isHeatmap: true)
+                        TrendLineChart(title: "Max Heart Rate Trend", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.maxBPM, color: .red, unit: "BPM", range: -1...210, selection: $selection)
+                        TrendLineChart(title: "Avg Pace (WPM)", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.averageWPM, color: .purple, unit: "WPM", range: -1...310, selection: $selection)
                         
-                        TrendLineChart(title: "Pace Peak (Max WPM)", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.maxWPM, color: .yellow, unit: "WPM", range: 0...400, selection: $selection)
-                        TrendLineChart(title: "Movement & Presence (Steps)", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.steps, color: .green, unit: "👣", range: 0...200, selection: $selection)
+                        TrendLineChart(title: "Pace Peak (Max WPM)", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.maxWPM, color: .yellow, unit: "WPM", range: -1...410, selection: $selection)
+                        TrendLineChart(title: "Movement & Presence (Steps)", sessions: chronologicalSessions, totalCount: sessions.count, keyPath: \.steps, color: .green, unit: "👣", range: -1...210, selection: $selection)
                         DurationBarChart(title: "Session Duration", sessions: chronologicalSessions, totalCount: sessions.count, color: .orange, selection: $selection)
                     }
                 }
@@ -250,15 +250,19 @@ struct TrendLineChart: View {
     let unit: String
     let range: ClosedRange<Double>
     @Binding var selection: NavigationTarget?
+    var isHeatmap: Bool = false
     
     @State private var hoveredLabel: String?
     
     var sessionLabels: [String] {
-        Array(sessions.enumerated()).map { "S\(totalCount - sessions.count + $0.offset + 1)" }
+        if sessions.isEmpty {
+            return ["Sessions"]
+        }
+        return Array(sessions.enumerated()).map { "S\(totalCount - sessions.count + $0.offset + 1)" }
     }
     
     func getSession(for label: String) -> SessionRecord? {
-        guard let index = sessionLabels.firstIndex(of: label) else { return nil }
+        guard let index = sessionLabels.firstIndex(of: label), !sessions.isEmpty else { return nil }
         return sessions[index]
     }
     
@@ -266,36 +270,53 @@ struct TrendLineChart: View {
         let dataMax = sessions.map { $0[keyPath: keyPath] }.max() ?? 0
         let dynamicUpperBound = max(range.upperBound, dataMax * 1.15)
         
+        let heatmapGradient = LinearGradient(
+            colors: [.green, .yellow, .orange, .red, .purple],
+            startPoint: .bottom,
+            endPoint: .top
+        )
+        
         VStack(alignment: .leading, spacing: 15) {
             Text(title).font(.headline).foregroundColor(.secondary)
             Chart {
-                ForEach(Array(sessions.enumerated()), id: \.offset) { index, session in
-                    let label = sessionLabels[index]
-                    let isHovered = hoveredLabel == label
-                    
+                if sessions.isEmpty {
                     LineMark(
-                        x: .value("Session", label),
-                        y: .value(unit, session[keyPath: keyPath])
+                        x: .value("Session", "Sessions"),
+                        y: .value(unit, 0.0)
                     )
-                    .foregroundStyle(color)
-                    .symbol {
-                        Circle()
-                            .fill(isHovered ? .white : color)
-                            .stroke(color, lineWidth: isHovered ? 3 : 0)
-                            .frame(width: isHovered ? 14 : 6, height: isHovered ? 14 : 6)
-                            .shadow(radius: isHovered ? 3 : 0)
+                    .foregroundStyle(.clear)
+                } else {
+                    // COMPORTAMENTO NORMALE
+                    ForEach(Array(sessions.enumerated()), id: \.offset) { index, session in
+                        let label = sessionLabels[index]
+                        let isHovered = hoveredLabel == label
+                        
+                        LineMark(
+                            x: .value("Session", label),
+                            y: .value(unit, session[keyPath: keyPath])
+                        )
+                        .foregroundStyle(isHeatmap ? AnyShapeStyle(heatmapGradient) : AnyShapeStyle(color))
+                        .symbol {
+                            Circle()
+                                .fill(isHeatmap ? (isHovered ? .white : Color(nsColor: .controlBackgroundColor)) : (isHovered ? .white : color))
+                                .stroke(isHeatmap ? Color.gray : color, lineWidth: isHeatmap ? 2 : (isHovered ? 3 : 0))
+                                .frame(width: isHovered ? 14 : 6, height: isHovered ? 14 : 6)
+                                .shadow(radius: isHovered ? 3 : 0)
+                        }
+                        .interpolationMethod(.monotone)
+                        
+                        if !isHeatmap {
+                            AreaMark(
+                                x: .value("Session", label),
+                                y: .value(unit, session[keyPath: keyPath])
+                            )
+                            .foregroundStyle(LinearGradient(colors: [color.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
+                            .interpolationMethod(.monotone)
+                        }
                     }
-                    .interpolationMethod(.monotone)
-                    
-                    AreaMark(
-                        x: .value("Session", label),
-                        y: .value(unit, session[keyPath: keyPath])
-                    )
-                    .foregroundStyle(LinearGradient(colors: [color.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
-                    .interpolationMethod(.monotone)
                 }
                 
-                if let hoveredLabel = hoveredLabel, let session = getSession(for: hoveredLabel) {
+                if !sessions.isEmpty, let hoveredLabel = hoveredLabel, let session = getSession(for: hoveredLabel) {
                     RuleMark(x: .value("Selected", hoveredLabel))
                         .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
                         .foregroundStyle(color.opacity(0.5))
@@ -320,11 +341,11 @@ struct TrendLineChart: View {
                     AxisValueLabel()
                 }
             }
-            .clipped()
             .chartOverlay { proxy in
                 GeometryReader { geometry in
                     Rectangle().fill(.clear).contentShape(Rectangle())
                         .onContinuousHover { phase in
+                            guard !sessions.isEmpty else { return }
                             switch phase {
                             case .active(let location):
                                 if let xValue = proxy.value(atX: location.x, as: String.self) {
@@ -335,6 +356,7 @@ struct TrendLineChart: View {
                             }
                         }
                         .onTapGesture { location in
+                            guard !sessions.isEmpty else { return }
                             if let xValue = proxy.value(atX: location.x, as: String.self),
                                let session = getSession(for: xValue) {
                                 selection = .session(session.id)
@@ -358,52 +380,37 @@ struct DurationBarChart: View {
     let color: Color
     @Binding var selection: NavigationTarget?
     
-    @State private var hoveredLabel: String?
-    
     var sessionLabels: [String] {
-        Array(sessions.enumerated()).map { "S\(totalCount - sessions.count + $0.offset + 1)" }
-    }
-    
-    func getSession(for label: String) -> SessionRecord? {
-        guard let index = sessionLabels.firstIndex(of: label) else { return nil }
-        return sessions[index]
+        if sessions.isEmpty {
+            return ["Sessions"]
+        }
+        return Array(sessions.enumerated()).map { "S\(totalCount - sessions.count + $0.offset + 1)" }
     }
     
     var body: some View {
-        let dataMax = sessions.map { $0.duration / 60.0 }.max() ?? 0
-        let dynamicUpperBound = max(5.0, dataMax * 1.15)
+        let maxDuration = sessions.map { $0.duration }.max() ?? 0
+        let dynamicUpperBound = max(10, maxDuration * 1.2)
         
         VStack(alignment: .leading, spacing: 15) {
             Text(title).font(.headline).foregroundColor(.secondary)
-            
             Chart {
-                ForEach(Array(sessions.enumerated()), id: \.offset) { index, session in
-                    let label = sessionLabels[index]
-                    let isHovered = hoveredLabel == label
-                    
-                    BarMark(
-                        x: .value("Session", label),
-                        y: .value("Minutes", session.duration / 60.0)
-                    )
-                    .foregroundStyle(isHovered ? color.opacity(0.5).gradient : color.gradient)
-                    .cornerRadius(6)
-                }
-                
-                if let hoveredLabel = hoveredLabel, let session = getSession(for: hoveredLabel) {
-                    RuleMark(x: .value("Selected", hoveredLabel))
-                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
-                        .foregroundStyle(color.opacity(0.5))
-                        .annotation(position: .top) {
-                            VStack(spacing: 4) {
-                                Text(session.date.formatted(date: .abbreviated, time: .shortened))
-                                    .font(.caption).bold()
-                                    .foregroundColor(.primary)
-                                Text("Click to open")
-                                    .font(.caption2)
-                                    .foregroundColor(color)
-                            }
-                            .padding(8).background(Color(nsColor: .windowBackgroundColor)).cornerRadius(8).shadow(radius: 3)
-                        }
+                // 2. STESSA GESTIONE DEL VUOTO
+                if sessions.isEmpty {
+                     BarMark(
+                         x: .value("Session", "Sessions"),
+                         y: .value("Duration (s)", 0.0)
+                     )
+                     .foregroundStyle(.clear)
+                } else {
+                    ForEach(Array(sessions.enumerated()), id: \.offset) { index, session in
+                        let label = sessionLabels[index]
+                        BarMark(
+                            x: .value("Session", label),
+                            y: .value("Duration (s)", session.duration)
+                        )
+                        .foregroundStyle(LinearGradient(colors: [color.opacity(0.7), color], startPoint: .bottom, endPoint: .top))
+                        .cornerRadius(5)
+                    }
                 }
             }
             .frame(height: 200)
@@ -411,27 +418,17 @@ struct DurationBarChart: View {
             .chartXAxis {
                 AxisMarks { _ in
                     AxisGridLine()
-                    AxisValueLabel()
+                    AxisValueLabel() 
                 }
             }
-            .clipped()
             .chartOverlay { proxy in
                 GeometryReader { geometry in
                     Rectangle().fill(.clear).contentShape(Rectangle())
-                        .onContinuousHover { phase in
-                            switch phase {
-                            case .active(let location):
-                                if let xValue = proxy.value(atX: location.x, as: String.self) {
-                                    hoveredLabel = xValue
-                                }
-                            case .ended:
-                                hoveredLabel = nil
-                            }
-                        }
                         .onTapGesture { location in
+                            guard !sessions.isEmpty else { return }
                             if let xValue = proxy.value(atX: location.x, as: String.self),
-                               let session = getSession(for: xValue) {
-                                selection = .session(session.id)
+                               let index = sessionLabels.firstIndex(of: xValue) {
+                                selection = .session(sessions[index].id)
                             }
                         }
                 }
@@ -602,14 +599,16 @@ struct SessionDetailView: View {
                 }
                 
                 LazyVGrid(columns: cardColumns, spacing: 20) {
-                    DetailStatCard(title: "Duration", value: formattedDuration, unit: "", icon: "timer", color: .cyan)
-                    DetailStatCard(title: "Total Steps", value: "\(Int(session.steps))", unit: "👣", icon: "figure.walk", color: .blue)
-                    DetailStatCard(title: "Energy Output", value: "\(energyScore)", unit: "%", icon: "flame.fill", color: .orange)
+                    DetailStatCard(title: "Duration", value: formattedDuration, unit: "", icon: "timer", color: .cyan, subtitle: " ")
+                    
+                    DetailStatCard(title: "Total Steps", value: "\(Int(session.steps))", unit: "👣", icon: "figure.walk", color: .blue, subtitle: " ")
+                    
+                    DetailStatCard(title: "Energy Output", value: "\(energyScore)", unit: "%", icon: "flame.fill", color: .orange, subtitle: " ")
                     
                     let isPaceGood = session.averageWPM >= 130 && session.averageWPM <= 160
                     DetailStatCard(title: "Avg Pace", value: "\(Int(session.averageWPM))", unit: "WPM", icon: "waveform", color: isPaceGood ? .green : .orange, subtitle: isPaceGood ? "Perfect Pace" : "Out of ideal range")
                     
-                    DetailStatCard(title: "Vocal Peak", value: "\(Int(session.maxWPM))", unit: "WPM", icon: "bolt.fill", color: .yellow)
+                    DetailStatCard(title: "Vocal Peak", value: "\(Int(session.maxWPM))", unit: "WPM", icon: "bolt.fill", color: .yellow, subtitle: " ")
                     
                     let bpmDiff = Int(session.maxBPM) - globalAvgBPM
                     let bpmSubtitle = bpmDiff > 0 ? "📈 +\(bpmDiff) vs your avg" : "📉 \(bpmDiff) vs your avg"
@@ -710,18 +709,27 @@ struct AnxietyChartView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Text("Live Stress Analysis").font(.headline)
+            
+            let heatmapGradient = LinearGradient(
+                colors: [.green, .yellow, .orange, .red, .purple],
+                startPoint: .bottom,
+                endPoint: .top
+            )
+            
             Chart {
                 ForEach(timeline, id: \.timeElapsed) { point in
                     LineMark(x: .value("Time", point.timeElapsed), y: .value("Anxiety %", point.anxietyScore))
-                        .foregroundStyle(.blue).interpolationMethod(.monotone)
-                        .symbol { Circle().fill(.blue).frame(width: 6, height: 6) }
-                    AreaMark(x: .value("Time", point.timeElapsed), y: .value("Anxiety %", point.anxietyScore))
-                        .foregroundStyle(LinearGradient(colors: [.blue.opacity(0.4), .clear], startPoint: .top, endPoint: .bottom))
+                        .foregroundStyle(heatmapGradient)
                         .interpolationMethod(.monotone)
+                        .symbol {
+                            Circle()
+                                .fill(Color(nsColor: .controlBackgroundColor))
+                                .stroke(Color.gray, lineWidth: 2)
+                                .frame(width: 6, height: 6)
+                        }
                 }
             }
-            .frame(height: 250).chartYScale(domain: 0...100)
-            .clipped()
+            .frame(height: 250).chartYScale(domain: 0...110)
         }
         .padding(25)
         .background(Color(nsColor: .controlBackgroundColor))
@@ -745,8 +753,7 @@ struct BPMChartView: View {
                         .interpolationMethod(.monotone)
                 }
             }
-            .frame(height: 250).chartYScale(domain: 40...200)
-            .clipped()
+            .frame(height: 250).chartYScale(domain: 0...210)
         }
         .padding(25)
         .background(Color(nsColor: .controlBackgroundColor))
