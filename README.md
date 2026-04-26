@@ -4,7 +4,9 @@
 
 AuraCoach is a multiplatform ecosystem designed to help speakers monitor and manage performance anxiety through real-time physiological analysis and AI-driven post-session feedback.
 
-[![See the video here:](https://drive.google.com/file/d/1dSNWohtnYkWANE2ko5WzAeP70hgD2N-C/view?usp=sharing)](https://drive.google.com/file/d/1dSNWohtnYkWANE2ko5WzAeP70hgD2N-C/view?usp=sharing)
+## 🎥 Project Video
+Watch the video here:  
+👉 https://drive.google.com/file/d/1dSNWohtnYkWANE2ko5WzAeP70hgD2N-C/view?usp=sharing
 
 ## 🌟 Project Vision
 The project was born to address the "Metacognitive Blind Spot": the inability of speakers to objectively perceive their state of agitation and speaking pace during a speech. AuraCoach transforms invisible biometric data into actionable feedback using the concept of **Calm Technology**.
