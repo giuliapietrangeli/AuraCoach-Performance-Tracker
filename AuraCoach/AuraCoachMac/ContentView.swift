@@ -316,21 +316,11 @@ struct TrendLineChart: View {
                     }
                 }
                 
-                if !sessions.isEmpty, let hoveredLabel = hoveredLabel, let session = getSession(for: hoveredLabel) {
+                // Annotazione rimossa, resta solo la RuleMark per la linea tratteggiata
+                if !sessions.isEmpty, let hoveredLabel = hoveredLabel {
                     RuleMark(x: .value("Selected", hoveredLabel))
                         .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
                         .foregroundStyle(color.opacity(0.5))
-                        .annotation(position: .top) {
-                            VStack(spacing: 4) {
-                                Text(session.date.formatted(date: .abbreviated, time: .shortened))
-                                    .font(.caption).bold()
-                                    .foregroundColor(.primary)
-                                Text("Click to open")
-                                    .font(.caption2)
-                                    .foregroundColor(color)
-                            }
-                            .padding(8).background(Color(nsColor: .windowBackgroundColor)).cornerRadius(8).shadow(radius: 3)
-                        }
                 }
             }
             .frame(height: 200)
@@ -418,7 +408,7 @@ struct DurationBarChart: View {
             .chartXAxis {
                 AxisMarks { _ in
                     AxisGridLine()
-                    AxisValueLabel() 
+                    AxisValueLabel()
                 }
             }
             .chartOverlay { proxy in
